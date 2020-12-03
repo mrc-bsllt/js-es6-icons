@@ -4,3 +4,66 @@
   box-sizing: border-box;
   font-family: 'Ubuntu', sans-serif;
 }
+
+/* header */
+header {
+  display: flex;
+  height: 100px;
+  padding: 10px;
+  background-color: #000000;
+}
+.main_title {
+  width: 20%;
+  height: 100%;
+  line-height: 80px;
+}
+h1 {
+  color: #2a7c80;
+}
+.options {
+  width: 80%;
+  height: 100%;
+  line-height: 80px;
+  text-align: center;
+}
+.options select {
+  width: 300px;
+  color: #ffffff;
+  font-weight: 700;
+  background-color: #2a7c80;
+  text-align-last: center;
+  border-radius: 10px;
+}
+/* /header */
+
+/* main */
+main {
+  height: calc(100vh - 100px);
+  padding: 100px;
+  background-color: #1b1b1b;
+  overflow-y: auto;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.icons > .icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  margin: 20px 70px;
+  border-radius: 50%;
+  background-color: #2a7c80;
+  border: 3px solid #bda423;
+}
+.icon > i {
+  font-size: 50px;
+}
+.icon > h2 {
+  color: #ffffff;
+}
+/* /main */
