@@ -1,11 +1,3 @@
-// milestone 1:
-// definire un array di oggetti; ogni oggetto
-// rappresenta un'icona, che è caratterizzata da:
-// nome, prefisso, tipo e famiglia.
-// Utilizzando la funzione forEach e il template
-// literal, visualizzare in pagina tutte le icone con il
-// proprio nome.
-
 // milestone 2:
 // definire un array di colori e associare ad ogni
 // tipo di icona un colore.
@@ -22,7 +14,7 @@
 $(document).ready(
   function() {
 
-    const icons = [
+    const arrayIcons = [
       {
         name: "dog",
         prefix: "fa-",
@@ -120,6 +112,28 @@ $(document).ready(
         family: "fas"
       },
     ];
-    
+
+    const iconsDiv = $("#icons");
+    print(iconsDiv, arrayIcons)
+
   }
 );
+
+// FUNZIONI---------------------------------------------------
+const print = (container, array) => {
+
+  array.forEach(
+    (element) => {
+      const {name, prefix, family} = element;
+      container.append(
+        `
+        <div class="icon">
+          <i class="${family} ${prefix}${name}"></i>
+          <h2>${name}</h2>
+        </div>
+        `
+      );
+    }
+  );
+
+};

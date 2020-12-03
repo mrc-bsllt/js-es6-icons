@@ -43,12 +43,12 @@ main {
   background-color: #1b1b1b;
   overflow-y: auto;
 }
-.icons {
+#icons {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.icons > .icon {
+#icons > .icon {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,6 +64,8 @@ main {
   font-size: 50px;
 }
 .icon > h2 {
+  margin-top: 5px;
+  font-size: 15px;
   color: #ffffff;
 }
 /* /main */
