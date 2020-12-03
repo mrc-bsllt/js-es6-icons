@@ -108,12 +108,15 @@ $(document).ready(
       },
     ];
     const colorsArray = ["#1f26e3", "#f6675e", "#09aa10"];
+    // array con tutte le tipologie di icone
     const typesArray = typesArreyFunction(arrayIcons);
+    // array di tutte le icone con anche il colore associato
     const arrayColorIcon = addColorIcon(arrayIcons, colorsArray, typesArray);
 
     const select = $("header select");
     const iconsDiv = $("#icons");
 
+    // aggiungo al select tutte le opzioni con le tipologie
     typesArray.forEach(
       (element) => {
         select.append(
@@ -124,7 +127,24 @@ $(document).ready(
       }
     );
 
-    print(iconsDiv, arrayColorIcon);
+    select.change(
+      function() {
+
+        let selectValue = $(this).val();
+
+        if(selectValue == "all") {
+          print(iconsDiv, arrayColorIcon);
+        } else {
+          const filteredByTypes = arrayColorIcon.filter(
+            (element) => {
+              return (element.type == selectValue);
+            }
+          );
+          print(iconsDiv, filteredByTypes);
+        }
+      }
+    );
+
 
 
   }
