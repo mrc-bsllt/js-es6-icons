@@ -1,8 +1,3 @@
-// milestone 2:
-// definire un array di colori e associare ad ogni
-// tipo di icona un colore.
-// Visualizzare le icone di colore diverso in base al
-// tipo.
 
 // milestone 3:
 // aggiungere una select per filtrare le icone in
@@ -115,10 +110,20 @@ $(document).ready(
     const colorsArray = ["#1f26e3", "#f6675e", "#09aa10"];
     const typesArray = typesArreyFunction(arrayIcons);
     const arrayColorIcon = addColorIcon(arrayIcons, colorsArray, typesArray);
-    console.log(arrayColorIcon);
 
-
+    const select = $("header select");
     const iconsDiv = $("#icons");
+
+    typesArray.forEach(
+      (element) => {
+        select.append(
+          `
+          <option value="${element}">${element.toUpperCase()}</option>
+          `
+        );
+      }
+    );
+
     print(iconsDiv, arrayColorIcon);
 
 
@@ -127,6 +132,7 @@ $(document).ready(
 
 // FUNZIONI---------------------------------------------------
 const print = (container, array) => {
+  container.html("");
 
   array.forEach(
     (element) => {
@@ -161,6 +167,7 @@ const addColorIcon = (initialArray, colorsArray, typesArray) => {
 
   const initialArrayWithColor = initialArray.map(
     (element) => {
+
       const indexType = typesArray.indexOf(element.type);
       const color = colorsArray[indexType];
 
