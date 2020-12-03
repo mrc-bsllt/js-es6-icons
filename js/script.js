@@ -112,12 +112,14 @@ $(document).ready(
         family: "fas"
       },
     ];
-    const colorsArray = ["#96c424", "#f6675e", "#09aa10"];
+    const colorsArray = ["#1f26e3", "#f6675e", "#09aa10"];
     const typesArray = typesArreyFunction(arrayIcons);
-    
+    const arrayColorIcon = addColorIcon(arrayIcons, colorsArray, typesArray);
+    console.log(arrayColorIcon);
+
 
     const iconsDiv = $("#icons");
-    print(iconsDiv, arrayIcons);
+    print(iconsDiv, arrayColorIcon);
 
 
   }
@@ -128,11 +130,11 @@ const print = (container, array) => {
 
   array.forEach(
     (element) => {
-      const {name, prefix, family} = element;
+      const {name, prefix, family, color} = element;
       container.append(
         `
         <div class="icon">
-          <i class="${family} ${prefix}${name}"></i>
+          <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
           <h2>${name}</h2>
         </div>
         `
@@ -153,4 +155,21 @@ const typesArreyFunction = (initialArray) => {
   );
 
   return allTypesArray;
+};
+
+const addColorIcon = (initialArray, colorsArray, typesArray) => {
+
+  const initialArrayWithColor = initialArray.map(
+    (element) => {
+      const indexType = typesArray.indexOf(element.type);
+      const color = colorsArray[indexType];
+
+      return {
+        ...element,
+        color
+      };
+    }
+  );
+
+  return initialArrayWithColor;
 };
