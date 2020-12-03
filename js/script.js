@@ -112,9 +112,13 @@ $(document).ready(
         family: "fas"
       },
     ];
+    const colorsArray = ["#96c424", "#f6675e", "#09aa10"];
+    const typesArray = typesArreyFunction(arrayIcons);
+    
 
     const iconsDiv = $("#icons");
-    print(iconsDiv, arrayIcons)
+    print(iconsDiv, arrayIcons);
+
 
   }
 );
@@ -136,4 +140,17 @@ const print = (container, array) => {
     }
   );
 
+};
+
+const typesArreyFunction = (initialArray) => {
+  const allTypesArray = [];
+
+  initialArray.forEach(
+    (element) => {
+      if (allTypesArray.includes(element.type) == false)
+      allTypesArray.push(element.type);
+    }
+  );
+
+  return allTypesArray;
 };
